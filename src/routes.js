@@ -1,9 +1,14 @@
-const {Router} = require('express');
+const { Router } = require('express');
+const User = require('./models/User');
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    return res.send("Hello world!")
+router.post("/", async (req, res) => {
+    const { name, email } = req.body
+
+    const user = await User.create({ name, email });
+
+    res.json({ user })
 });
 
 module.exports = router;
