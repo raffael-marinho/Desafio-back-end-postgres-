@@ -9,4 +9,6 @@ router.post("/user-create", UserController.createUser);
 router.get("/users", UserController.getUsers);
 router.get("/users/:id", UserController.getUserById);
 
+router.put("/update/:id", UserController.updateUser);
+
 module.exports = router;
